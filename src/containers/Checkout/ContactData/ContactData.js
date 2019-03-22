@@ -85,7 +85,8 @@ class ContactData extends Component {
                         {value:'cheapest', displayValue: 'Giant Sling Shot'},
                     ]
                 },
-                value: '',
+                value: 'Portal Drop',
+                validation:{},
                 valid: true,
             },
         },
