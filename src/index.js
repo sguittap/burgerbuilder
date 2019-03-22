@@ -5,10 +5,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, compose} from 'redux';
 import reducer from './store/reducer';
 
-const store = createStore(reducer);
+
+const reduxDevTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = createStore(reducer,reduxDevTool);
 
 const app = (
     <Provider store={store}>
