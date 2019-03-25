@@ -12,7 +12,7 @@ export const purchaseBurgerSuccess = (id, orderData) => {
 export const purchaseBurgerFail = (error) => {
     return{
         type: actionTypes.PURCHASE_BURGER_FAIL,
-        error: error,
+        error: error
     }
 };
 
@@ -43,7 +43,7 @@ export const purchaseInit = () => {
 
 export const fetchOrdersSuccess = (orders) => {
     return{
-        types: actionTypes.FETCH_ORDERS_SUCCESS,
+        type: actionTypes.FETCH_ORDERS_SUCCESS,
         orders: orders
     }
 };
@@ -58,7 +58,6 @@ export const fetchOrdersFail = (error) => {
 export const fetchOrdersStart = () => {
     return{
         type: actionTypes.FETCH_ORDERS_START,
-
     }
 };
 

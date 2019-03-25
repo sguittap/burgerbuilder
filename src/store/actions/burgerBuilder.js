@@ -19,13 +19,13 @@ export const removeIngredient = (name) => {
 export const setIngredients = (ingredients) => {
     return {
         type: actionTypes.SET_INGREDIENTS,
-        ingredients: ingredients,
+        ingredients: ingredients
     }
 };
 
 export const fetchIngredientsFailed = () => {
     return {
-        type: actionTypes.FETCH_INGREDIENTS_FAILED
+        type: actionTypes.FETCH_INGREDIENTS_FAILED,
     }
 };
 
@@ -36,7 +36,7 @@ export const initIngredients = () => {
             disptach(setIngredients(res.data))
         })
         .catch(error =>{
-            disptach(fetchIngredientsFailed())
+            disptach(fetchIngredientsFailed(error))
         })
     }
 };
