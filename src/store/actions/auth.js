@@ -10,13 +10,13 @@ export const authStart = () => {
     }
 };
 
-export const authSuccess = (authData) => {
+export const authSuccess = (token, userId) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        authData: authData
+        idToken: token,
+        userId: userId
     }
 };
-
 
 export const authFail = (error) => {
     return{
@@ -39,8 +39,8 @@ export const auth = (email, password, isSignup) => {
             url = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${API_KEY}`
         };
         axios.post(url, authData)
-            .then(response => {
-                dispatch(authSuccess(response.data))
+            .then(res => {
+                dispatch(authSuccess(res.data.idToken, res.data.localId))
             })
             .catch(error => {
                 console.log(error)
