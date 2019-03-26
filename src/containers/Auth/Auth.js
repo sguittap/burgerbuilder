@@ -4,6 +4,7 @@ import Button from '../../components/UI/Button/Button';
 import classes from './Auth.module.css';
 import * as actions from '../../store/actions/index';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
 class Auth extends Component{
     state={
