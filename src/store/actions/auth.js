@@ -1,5 +1,8 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+require('dotenv').config();
+
+
 
 export const authStart = () => {
     return {
@@ -25,7 +28,19 @@ export const authFail = (error) => {
 export const auth = (email, password) => {
     return dispatch => {
         dispatch(authStart());
-        const API_KEY = process.env.FIREBASE_API_KEY;
-        axios.post(`'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${API_KEY}'`)
+        const authData = {
+            email: email,
+            password: password,
+            returnSecureToken: true,
+        };
+        const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
+        axios.post(API_KEY, authData)
+            .then(response => {
+                dispatch(authSuccess(response.data))
+            })
+            .catch(error => {
+                console.log(error)
+                dispatch(authFail(error))
+            })
     }
 };
