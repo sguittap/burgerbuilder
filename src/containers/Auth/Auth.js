@@ -4,7 +4,6 @@ import Button from '../../components/UI/Button/Button';
 import classes from './Auth.module.css';
 import * as actions from '../../store/actions/index';
 import {connect} from 'react-redux';
-import axios from 'axios';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {Redirect} from 'react-router-dom';
 import {updateObject, checkValidity} from '../../shared/utility';
@@ -51,7 +50,7 @@ class Auth extends Component{
     };
 
     inputChangedHandler = (event, controlName) => {
-        const updatedControls = updateObject(this.state.controsl,{
+        const updatedControls = updateObject(this.state.controls,{
             [controlName]: updateObject(this.state.controls[controlName],{
                 value: event.target.value,
                 valid: checkValidity(event.target.value, this.state.controls[controlName].validation),
