@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Modal from '../../components/UI/Modal/Modal';
-import Aux from '../Aux'
+import Aux from '../Aux/Aux'
 
 
 const errorHandler = (WrappedComponent, axios) => { 
